@@ -34,17 +34,17 @@ export interface Celebrity {
 
 const celebrities: Celebrity[] = [
   // K-POP
-  { name: "RM", role: "K-POP", group: "BTS", birthYear: 1994, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#7C3AED", "#EC4899"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/RM_at_the_White_House%2C_May_2022.jpg/220px-RM_at_the_White_House%2C_May_2022.jpg" },
-  { name: "Jungkook", role: "K-POP", group: "BTS", birthYear: 1997, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#6366F1", "#8B5CF6"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jungkook_at_the_White_House%2C_May_2022.jpg/220px-Jungkook_at_the_White_House%2C_May_2022.jpg" },
-  { name: "Lisa", role: "K-POP", group: "BLACKPINK", birthYear: 1997, nationality: "\ud83c\uddf9\ud83c\udded", gradient: ["#EC4899", "#F43F5E"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/230903_%EB%A6%AC%EC%82%AC_%ED%8C%A8%EC%85%98%EC%9C%84%ED%81%AC_2.jpg/220px-230903_%EB%A6%AC%EC%82%AC_%ED%8C%A8%EC%85%98%EC%9C%84%ED%81%AC_2.jpg" },
-  { name: "Jennie", role: "K-POP", group: "BLACKPINK", birthYear: 1996, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#F43F5E", "#FB923C"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jennie_Kim_at_the_Met_Gala_2023.jpg/220px-Jennie_Kim_at_the_Met_Gala_2023.jpg" },
-  { name: "IU", role: "K-POP", group: "Solo", birthYear: 1993, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#A78BFA", "#C084FC"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IU_at_%22Broker%22_premiere%2C_May_2022.jpg/220px-IU_at_%22Broker%22_premiere%2C_May_2022.jpg" },
-  { name: "Bang Chan", role: "K-POP", group: "Stray Kids", birthYear: 1997, nationality: "\ud83c\udde6\ud83c\uddfa", gradient: ["#2DD4BF", "#6366F1"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bang_Chan_at_Incheon_Airport_on_March_10%2C_2023_%282%29.jpg/220px-Bang_Chan_at_Incheon_Airport_on_March_10%2C_2023_%282%29.jpg" },
+  { name: "RM", role: "K-POP", group: "BTS", birthYear: 1994, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#7C3AED", "#EC4899"], imageUrl: "" },
+  { name: "Jungkook", role: "K-POP", group: "BTS", birthYear: 1997, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#6366F1", "#8B5CF6"], imageUrl: "" },
+  { name: "Lisa", role: "K-POP", group: "BLACKPINK", birthYear: 1997, nationality: "\ud83c\uddf9\ud83c\udded", gradient: ["#EC4899", "#F43F5E"], imageUrl: "/celebrities/lisa.jpg" },
+  { name: "Jennie", role: "K-POP", group: "BLACKPINK", birthYear: 1996, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#F43F5E", "#FB923C"], imageUrl: "/celebrities/jennie.jpg" },
+  { name: "IU", role: "K-POP", group: "Solo", birthYear: 1993, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#A78BFA", "#C084FC"], imageUrl: "" },
+  { name: "Bang Chan", role: "K-POP", group: "Stray Kids", birthYear: 1997, nationality: "\ud83c\udde6\ud83c\uddfa", gradient: ["#2DD4BF", "#6366F1"], imageUrl: "/celebrities/bang-chan.png" },
   // Global
-  { name: "Taylor Swift", role: "Singer", group: "Solo", birthYear: 1989, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#F472B6", "#FCA5A5"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/220px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png" },
-  { name: "Harry Styles", role: "Singer", group: "Solo", birthYear: 1994, nationality: "\ud83c\uddec\ud83c\udde7", gradient: ["#34D399", "#6EE7B7"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Harry_Styles_Vogue_2020.jpg/220px-Harry_Styles_Vogue_2020.jpg" },
-  { name: "Billie Eilish", role: "Singer", group: "Solo", birthYear: 2001, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#4ADE80", "#22D3EE"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/220px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg" },
-  { name: "Olivia Rodrigo", role: "Singer", group: "Solo", birthYear: 2003, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#C084FC", "#F472B6"], imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Olivia_Rodrigo_at_the_White_House_2.jpg/220px-Olivia_Rodrigo_at_the_White_House_2.jpg" },
+  { name: "Taylor Swift", role: "Singer", group: "Solo", birthYear: 1989, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#F472B6", "#FCA5A5"], imageUrl: "/celebrities/taylor-swift.png" },
+  { name: "Harry Styles", role: "Singer", group: "Solo", birthYear: 1994, nationality: "\ud83c\uddec\ud83c\udde7", gradient: ["#34D399", "#6EE7B7"], imageUrl: "/celebrities/harry-styles.jpg" },
+  { name: "Billie Eilish", role: "Singer", group: "Solo", birthYear: 2001, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#4ADE80", "#22D3EE"], imageUrl: "/celebrities/billie-eilish.jpg" },
+  { name: "Olivia Rodrigo", role: "Singer", group: "Solo", birthYear: 2003, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#C084FC", "#F472B6"], imageUrl: "/celebrities/olivia-rodrigo.jpg" },
 ];
 
 export interface CelebMatchResult {
