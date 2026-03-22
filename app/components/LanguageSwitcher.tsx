@@ -16,9 +16,9 @@ export default function LanguageSwitcher() {
             onClick={() => setLocale(l)}
             className={`cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
               active
-                ? "bg-[#1B3A5C] text-[#C9A84C] shadow-md"
-                : "bg-[#FFF8F0] text-[#1B3A5C] hover:bg-[#F5EDD6] dark:bg-[#152A3E] dark:text-[#F5EDD6] dark:hover:bg-[#1B3A5C]"
-            } border border-[#C9A84C]/30`}
+                ? "bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] text-white shadow-md shadow-[#EC4899]/20"
+                : "bg-[#251D3A] text-white/70 hover:bg-[#1A1230]"
+            } border border-[#8B5CF6]/20`}
           >
             {translations[l].meta.flag} {translations[l].meta.langLabel}
           </button>

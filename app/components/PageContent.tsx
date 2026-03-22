@@ -3,9 +3,13 @@
 import { useLanguage } from "./LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import AgeCalculator from "./AgeCalculator";
+import CelebrityCard from "./CelebrityCard";
+import { getAllCelebrities, getKoreanAge } from "../lib/funFacts";
 
 export default function PageContent() {
   const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+  const allCelebs = getAllCelebrities();
 
   return (
     <div className="flex flex-1 flex-col font-sans">
@@ -15,14 +19,11 @@ export default function PageContent() {
       </nav>
 
       {/* Hero */}
-      <header className="hero-bg px-4 pt-12 pb-14 text-center">
-        <p className="gold-shimmer mb-3 text-sm font-semibold tracking-widest uppercase">
-          &#9672; Korean Age &#9672;
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight text-[#1B3A5C] sm:text-5xl dark:text-[#F5EDD6]">
+      <header className="hero-bg px-4 pt-12 pb-6 text-center">
+        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           {t.hero.title}
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-[#1B3A5C]/70 dark:text-[#F5EDD6]/60">
+        <p className="mx-auto mt-4 max-w-xl text-lg text-white/50">
           {t.hero.subtitle}
         </p>
       </header>
@@ -32,60 +33,80 @@ export default function PageContent() {
         <AgeCalculator />
       </section>
 
-      {/* Decorative divider */}
-      <div className="korean-divider px-8 py-2 text-sm">&#9830;</div>
+      {/* Celebrity Gallery */}
+      <section className="px-4 py-16">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl font-bold text-white mb-2">
+            {t.gallery.title}
+          </h2>
+          <p className="text-white/40 mb-8">
+            {t.gallery.subtitle}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {allCelebs.map((celeb) => (
+              <CelebrityCard
+                key={celeb.name}
+                celebrity={celeb}
+                koreanAge={getKoreanAge(celeb.birthYear, currentYear)}
+                size="sm"
+                labels={{
+                  koreanAgeLabel: t.gallery.koreanAgeLabel,
+                  bornLabel: t.gallery.bornLabel,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Explanation */}
-      <section className="bg-[var(--korean-cream)] px-4 py-16">
+      <section className="px-4 py-16">
         <div className="mx-auto max-w-2xl space-y-8">
           <div className="glass-card rounded-xl p-6">
-            <h2 className="text-2xl font-semibold text-[#1B3A5C] dark:text-[#F5EDD6]">
+            <h2 className="text-2xl font-semibold text-white">
               {t.explanation.howTitle}
             </h2>
-            <p className="mt-3 leading-7 text-[#1B3A5C]/75 dark:text-[#F5EDD6]/65">
+            <p className="mt-3 leading-7 text-white/60">
               {t.explanation.howP1}
             </p>
-            <p className="mt-4 rounded-lg bg-[#C9A84C]/10 px-4 py-3 text-center font-semibold text-[#1B3A5C] dark:bg-[#C9A84C]/15 dark:text-[#C9A84C]">
+            <p className="mt-4 rounded-lg bg-[#8B5CF6]/10 px-4 py-3 text-center font-semibold text-[#EC4899]">
               {t.explanation.howFormula}
             </p>
           </div>
 
           <div className="glass-card rounded-xl p-6">
-            <h2 className="text-2xl font-semibold text-[#1B3A5C] dark:text-[#F5EDD6]">
+            <h2 className="text-2xl font-semibold text-white">
               {t.explanation.vsTitle}
             </h2>
-            <p className="mt-3 leading-7 text-[#1B3A5C]/75 dark:text-[#F5EDD6]/65">
+            <p className="mt-3 leading-7 text-white/60">
               {t.explanation.vsP1}
             </p>
           </div>
 
           <div className="glass-card rounded-xl p-6">
-            <h2 className="text-2xl font-semibold text-[#1B3A5C] dark:text-[#F5EDD6]">
+            <h2 className="text-2xl font-semibold text-white">
               {t.explanation.reformTitle}
             </h2>
-            <p className="mt-3 leading-7 text-[#1B3A5C]/75 dark:text-[#F5EDD6]/65">
+            <p className="mt-3 leading-7 text-white/60">
               {t.explanation.reformP1}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Decorative divider */}
-      <div className="korean-divider px-8 py-2 text-sm">&#9830;</div>
-
       {/* FAQ */}
-      <section className="bg-[var(--korean-cream)] px-4 py-16">
+      <section className="px-4 py-16">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-8 text-center text-2xl font-semibold text-[#1B3A5C] dark:text-[#F5EDD6]">
+          <h2 className="mb-8 text-center text-2xl font-semibold text-white">
             {t.faq.title}
           </h2>
           <dl className="space-y-4">
             {t.faq.items.map((item, i) => (
               <div key={i} className="glass-card rounded-xl p-5">
-                <dt className="font-semibold text-[#C73E3A] dark:text-[#E8A09E]">
+                <dt className="font-semibold text-[#EC4899]">
                   {item.q}
                 </dt>
-                <dd className="mt-2 leading-7 text-[#1B3A5C]/75 dark:text-[#F5EDD6]/65">
+                <dd className="mt-2 leading-7 text-white/60">
                   {item.a}
                 </dd>
               </div>
@@ -95,7 +116,7 @@ export default function PageContent() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1B3A5C] px-4 py-8 text-center text-sm text-[#F5EDD6]/70">
+      <footer className="bg-[#0A0718] px-4 py-8 text-center text-sm text-white/40">
         <p>
           {t.footer} &copy; {new Date().getFullYear()}
         </p>

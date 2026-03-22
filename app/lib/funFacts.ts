@@ -24,66 +24,60 @@ export function getZodiac(birthYear: number): ZodiacInfo {
 
 export interface Celebrity {
   name: string;
+  role: string;
   group: string;
   birthYear: number;
-  imageUrl: string;
+  nationality: string;
+  gradient: [string, string];
 }
 
 const celebrities: Celebrity[] = [
-  // BTS
-  { name: "Jin", group: "BTS", birthYear: 1992, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Kim_Seok-jin_at_the_White_House%2C_May_2022.jpg/220px-Kim_Seok-jin_at_the_White_House%2C_May_2022.jpg" },
-  { name: "Suga", group: "BTS", birthYear: 1993, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Suga_at_the_White_House%2C_May_2022.jpg/220px-Suga_at_the_White_House%2C_May_2022.jpg" },
-  { name: "RM", group: "BTS", birthYear: 1994, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/RM_at_the_White_House%2C_May_2022.jpg/220px-RM_at_the_White_House%2C_May_2022.jpg" },
-  { name: "J-Hope", group: "BTS", birthYear: 1994, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/J-Hope_at_the_White_House%2C_May_2022.jpg/220px-J-Hope_at_the_White_House%2C_May_2022.jpg" },
-  { name: "Jimin", group: "BTS", birthYear: 1995, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Jimin_at_the_White_House%2C_May_2022.jpg/220px-Jimin_at_the_White_House%2C_May_2022.jpg" },
-  { name: "V", group: "BTS", birthYear: 1995, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/V_at_the_White_House%2C_May_2022.jpg/220px-V_at_the_White_House%2C_May_2022.jpg" },
-  { name: "Jungkook", group: "BTS", birthYear: 1997, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jungkook_at_the_White_House%2C_May_2022.jpg/220px-Jungkook_at_the_White_House%2C_May_2022.jpg" },
-  // BLACKPINK
-  { name: "Jisoo", group: "BLACKPINK", birthYear: 1995, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kim_Ji-soo_at_Dior_fashion_show%2C_February_2022.jpg/220px-Kim_Ji-soo_at_Dior_fashion_show%2C_February_2022.jpg" },
-  { name: "Jennie", group: "BLACKPINK", birthYear: 1996, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jennie_Kim_at_the_Met_Gala_2023.jpg/220px-Jennie_Kim_at_the_Met_Gala_2023.jpg" },
-  { name: "Ros\u00e9", group: "BLACKPINK", birthYear: 1997, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ros%C3%A9_at_the_Met_Gala_2023.png/220px-Ros%C3%A9_at_the_Met_Gala_2023.png" },
-  { name: "Lisa", group: "BLACKPINK", birthYear: 1997, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/230903_%EB%A6%AC%EC%82%AC_%ED%8C%A8%EC%85%98%EC%9C%84%ED%81%AC_2.jpg/220px-230903_%EB%A6%AC%EC%82%AC_%ED%8C%A8%EC%85%98%EC%9C%84%ED%81%AC_2.jpg" },
-  // Solo / Actors
-  { name: "IU", group: "Solo", birthYear: 1993, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/IU_at_%22Broker%22_premiere%2C_May_2022.jpg/220px-IU_at_%22Broker%22_premiere%2C_May_2022.jpg" },
-  { name: "Park Bo-gum", group: "Actor", birthYear: 1993, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Park_Bo-gum_at_MAMA_2018.jpg/220px-Park_Bo-gum_at_MAMA_2018.jpg" },
-  { name: "Song Hye-kyo", group: "Actress", birthYear: 1981, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Song_Hye-kyo_at_the_Blue_Dragon_Film_Awards_2023.jpg/220px-Song_Hye-kyo_at_the_Blue_Dragon_Film_Awards_2023.jpg" },
-  { name: "Hyun Bin", group: "Actor", birthYear: 1982, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hyun_Bin_at_APAN_Star_Awards%2C_2020.jpg/220px-Hyun_Bin_at_APAN_Star_Awards%2C_2020.jpg" },
-  { name: "Son Ye-jin", group: "Actress", birthYear: 1982, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Son_Ye-jin_at_Baeksang_Arts_Awards_2020.jpg/220px-Son_Ye-jin_at_Baeksang_Arts_Awards_2020.jpg" },
-  { name: "Lee Min-ho", group: "Actor", birthYear: 1987, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lee_Min-ho_at_Incheon_Airport%2C_March_2023.jpg/220px-Lee_Min-ho_at_Incheon_Airport%2C_March_2023.jpg" },
-  { name: "Kim Soo-hyun", group: "Actor", birthYear: 1988, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kim_Soo-hyun_at_BIFF%2C_October_2023.jpg/220px-Kim_Soo-hyun_at_BIFF%2C_October_2023.jpg" },
-  { name: "Park Seo-joon", group: "Actor", birthYear: 1988, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Park_Seo-joon_at_Midnight_Runners_VIP_premiere_in_August_2017.jpg/220px-Park_Seo-joon_at_Midnight_Runners_VIP_premiere_in_August_2017.jpg" },
-  { name: "Bae Suzy", group: "Solo/Actress", birthYear: 1994, imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bae_Su-ji_at_Baeksang_Arts_Awards_2023.jpg/220px-Bae_Su-ji_at_Baeksang_Arts_Awards_2023.jpg" },
+  // K-POP
+  { name: "RM", role: "K-POP", group: "BTS", birthYear: 1994, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#7C3AED", "#EC4899"] },
+  { name: "Jungkook", role: "K-POP", group: "BTS", birthYear: 1997, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#6366F1", "#8B5CF6"] },
+  { name: "Lisa", role: "K-POP", group: "BLACKPINK", birthYear: 1997, nationality: "\ud83c\uddf9\ud83c\udded", gradient: ["#EC4899", "#F43F5E"] },
+  { name: "Jennie", role: "K-POP", group: "BLACKPINK", birthYear: 1996, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#F43F5E", "#FB923C"] },
+  { name: "IU", role: "K-POP", group: "Solo", birthYear: 1993, nationality: "\ud83c\uddf0\ud83c\uddf7", gradient: ["#A78BFA", "#C084FC"] },
+  { name: "Bang Chan", role: "K-POP", group: "Stray Kids", birthYear: 1997, nationality: "\ud83c\udde6\ud83c\uddfa", gradient: ["#2DD4BF", "#6366F1"] },
+  // Global
+  { name: "Taylor Swift", role: "Singer", group: "Solo", birthYear: 1989, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#F472B6", "#FCA5A5"] },
+  { name: "Harry Styles", role: "Singer", group: "Solo", birthYear: 1994, nationality: "\ud83c\uddec\ud83c\udde7", gradient: ["#34D399", "#6EE7B7"] },
+  { name: "Billie Eilish", role: "Singer", group: "Solo", birthYear: 2001, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#4ADE80", "#22D3EE"] },
+  { name: "Olivia Rodrigo", role: "Singer", group: "Solo", birthYear: 2003, nationality: "\ud83c\uddfa\ud83c\uddf8", gradient: ["#C084FC", "#F472B6"] },
 ];
 
-export interface CelebMatch {
-  celeb: Celebrity;
-  exact: boolean;
+export interface CelebMatchResult {
+  exact: Celebrity[];
+  closest: Celebrity[];
 }
 
-export function getCelebMatch(
+export function getCelebMatches(
   koreanAge: number,
   currentYear: number
-): CelebMatch {
+): CelebMatchResult {
   const targetBirthYear = currentYear - koreanAge + 1;
 
   const exactMatches = celebrities.filter(
     (c) => c.birthYear === targetBirthYear
   );
   if (exactMatches.length > 0) {
-    const pick = exactMatches[Math.floor(Math.random() * exactMatches.length)];
-    return { celeb: pick, exact: true };
+    return { exact: exactMatches, closest: [] };
   }
 
-  let closest = celebrities[0];
-  let minDiff = Math.abs(celebrities[0].birthYear - targetBirthYear);
-  for (const c of celebrities) {
-    const diff = Math.abs(c.birthYear - targetBirthYear);
-    if (diff < minDiff) {
-      minDiff = diff;
-      closest = c;
-    }
-  }
-  return { celeb: closest, exact: false };
+  const sorted = [...celebrities].sort(
+    (a, b) =>
+      Math.abs(a.birthYear - targetBirthYear) -
+      Math.abs(b.birthYear - targetBirthYear)
+  );
+  return { exact: [], closest: sorted.slice(0, 2) };
+}
+
+export function getAllCelebrities(): Celebrity[] {
+  return celebrities;
+}
+
+export function getKoreanAge(birthYear: number, currentYear: number): number {
+  return currentYear - birthYear + 1;
 }
 
 export function getHakbeon(birthYear: number): string {
@@ -93,13 +87,13 @@ export function getHakbeon(birthYear: number): string {
 }
 
 export function getShareText(
-  zodiac: ZodiacInfo,
-  celebMatch: CelebMatch,
-  koreanAge: number
+  koreanAge: number,
+  celebName: string | null,
+  celebNationality: string | null
 ): string {
-  const zodiacPart = `I'm a ${zodiac.animal} ${zodiac.emoji}`;
-  const celebPart = celebMatch.exact
-    ? `and the same Korean age as ${celebMatch.celeb.group} ${celebMatch.celeb.name}!`
-    : `and close in Korean age to ${celebMatch.celeb.group} ${celebMatch.celeb.name}!`;
-  return `${zodiacPart} ${celebPart} My Korean age is ${koreanAge}. Calculate yours!\nhttps://korean-age-calculator-sooty.vercel.app`;
+  const agePart = `My Korean age is ${koreanAge}!`;
+  const celebPart = celebName
+    ? `\nI share my Korean age with ${celebName} ${celebNationality || ""}`
+    : "";
+  return `${agePart}${celebPart}\nFind YOUR Korean age twin!\n\ud83d\udc49 https://korean-age-calculator-sooty.vercel.app`;
 }

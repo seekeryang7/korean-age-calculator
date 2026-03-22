@@ -14,30 +14,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Korean Age Calculator — Find Your Korean Age",
+  title: "Korean Age Calculator \u2014 Find Your Celebrity Korean Age Twin",
   description:
-    "Calculate your Korean age instantly. Learn the difference between Korean age and international age, and understand Korea's 2023 age reform.",
+    "Calculate your Korean age and discover which K-pop stars and celebrities share your Korean age! Compare with BTS, BLACKPINK, Taylor Swift and more.",
   keywords: [
     "Korean age",
     "Korean age calculator",
-    "한국 나이",
-    "age in Korea",
-    "international age",
-    "만 나이",
-    "Korean age system",
+    "Korean age twin",
+    "celebrity Korean age",
+    "K-pop age",
+    "\ud55c\uad6d \ub098\uc774",
+    "\ub9cc \ub098\uc774",
+    "BTS age",
+    "BLACKPINK age",
   ],
   openGraph: {
-    title: "Korean Age Calculator — Find Your Korean Age",
+    title: "Who Shares Your Korean Age? | Korean Age Calculator",
     description:
-      "Calculate your Korean age instantly. Learn the difference between Korean age and international age.",
+      "Calculate your Korean age and find your celebrity Korean age twins! BTS, BLACKPINK, Taylor Swift and more.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Korean Age Calculator",
+    title: "Who Shares Your Korean Age?",
     description:
-      "Calculate your Korean age instantly and learn how the Korean age system works.",
+      "Calculate your Korean age and discover your celebrity age twins!",
   },
 };
 
@@ -58,7 +60,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#0F0B1A] text-[#F0E6FF]">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
