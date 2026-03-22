@@ -22,6 +22,9 @@ export interface Translation {
   calculator: {
     heading: string;
     label: string;
+    yearLabel: string;
+    monthLabel: string;
+    dayLabel: string;
     placeholder: string;
     button: string;
     koreanAge: string;
@@ -83,6 +86,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Enter Your Birthday",
       label: "Date of Birth",
+      yearLabel: "Year",
+      monthLabel: "Month",
+      dayLabel: "Day",
       placeholder: "",
       button: "Calculate My Korean Age",
       koreanAge: "Korean Age (한국 나이)",
@@ -148,6 +154,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "생년월일 입력",
       label: "생년월일",
+      yearLabel: "년",
+      monthLabel: "월",
+      dayLabel: "일",
       placeholder: "",
       button: "한국 나이 계산하기",
       koreanAge: "한국 나이",
@@ -212,6 +221,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "誕生日を入力",
       label: "生年月日",
+      yearLabel: "年",
+      monthLabel: "月",
+      dayLabel: "日",
       placeholder: "",
       button: "韓国年齢を計算する",
       koreanAge: "韓国年齢（한국 나이）",
@@ -276,6 +288,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "输入你的生日",
       label: "出生日期",
+      yearLabel: "年",
+      monthLabel: "月",
+      dayLabel: "日",
       placeholder: "",
       button: "计算韩国年龄",
       koreanAge: "韩国年龄（한국 나이）",
@@ -340,6 +355,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "กรอกวันเกิดของคุณ",
       label: "วันเกิด",
+      yearLabel: "ปี",
+      monthLabel: "เดือน",
+      dayLabel: "วัน",
       placeholder: "",
       button: "คำนวณอายุเกาหลี",
       koreanAge: "อายุเกาหลี (한국 나이)",
@@ -405,6 +423,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Nhập Ngày Sinh",
       label: "Ngày sinh",
+      yearLabel: "Năm",
+      monthLabel: "Tháng",
+      dayLabel: "Ngày",
       placeholder: "",
       button: "Tính Tuổi Hàn Quốc",
       koreanAge: "Tuổi Hàn Quốc (한국 나이)",
@@ -470,6 +491,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Masukkan Tanggal Lahir",
       label: "Tanggal Lahir",
+      yearLabel: "Tahun",
+      monthLabel: "Bulan",
+      dayLabel: "Hari",
       placeholder: "",
       button: "Hitung Usia Korea Saya",
       koreanAge: "Usia Korea (한국 나이)",
@@ -535,6 +559,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Entrez votre date de naissance",
       label: "Date de naissance",
+      yearLabel: "Ann\u00e9e",
+      monthLabel: "Mois",
+      dayLabel: "Jour",
       placeholder: "",
       button: "Calculer mon \u00e2ge cor\u00e9en",
       koreanAge: "\u00c2ge cor\u00e9en (\ud55c\uad6d \ub098\uc774)",
@@ -600,6 +627,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Ingresa tu fecha de nacimiento",
       label: "Fecha de nacimiento",
+      yearLabel: "A\u00f1o",
+      monthLabel: "Mes",
+      dayLabel: "D\u00eda",
       placeholder: "",
       button: "Calcular mi edad coreana",
       koreanAge: "Edad coreana (\ud55c\uad6d \ub098\uc774)",
@@ -665,6 +695,9 @@ export const translations: Record<Locale, Translation> = {
     calculator: {
       heading: "Geben Sie Ihr Geburtsdatum ein",
       label: "Geburtsdatum",
+      yearLabel: "Jahr",
+      monthLabel: "Monat",
+      dayLabel: "Tag",
       placeholder: "",
       button: "Koreanisches Alter berechnen",
       koreanAge: "Koreanisches Alter (\ud55c\uad6d \ub098\uc774)",

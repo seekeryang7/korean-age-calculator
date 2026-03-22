@@ -12,6 +12,7 @@ interface FunResultsProps {
 export default function FunResults({ birthYear, koreanAge }: FunResultsProps) {
   const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const zodiac = useMemo(() => getZodiac(birthYear), [birthYear]);
   const currentYear = new Date().getFullYear();
@@ -48,8 +49,19 @@ export default function FunResults({ birthYear, koreanAge }: FunResultsProps) {
 
       {/* Celebrity Card */}
       <div className="glass-card rounded-xl p-5 text-center">
-        <p className="text-4xl">{"\ud83c\udfA4"}</p>
-        <p className="mt-2 text-lg font-bold text-[#1B3A5C] dark:text-[#F5EDD6]">
+        <div className="flex justify-center">
+          {!imgError ? (
+            <img
+              src={celebMatch.celeb.imageUrl}
+              alt={celebMatch.celeb.name}
+              className="h-20 w-20 rounded-full object-cover border-2 border-[#C9A84C]/40"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <p className="text-4xl">{"\ud83c\udfA4"}</p>
+          )}
+        </div>
+        <p className="mt-3 text-lg font-bold text-[#1B3A5C] dark:text-[#F5EDD6]">
           {celebMatch.exact
             ? f.celebExact(celebMatch.celeb.name, celebMatch.celeb.group)
             : f.celebClosest(celebMatch.celeb.name, celebMatch.celeb.group)}

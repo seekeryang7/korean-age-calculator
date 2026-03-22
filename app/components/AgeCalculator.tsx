@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useLanguage } from "./LanguageContext";
 import FunResults from "./FunResults";
 
@@ -10,22 +10,48 @@ interface AgeResult {
   birthYear: number;
 }
 
+function getDaysInMonth(year: number, month: number): number {
+  return new Date(year, month, 0).getDate();
+}
+
 export default function AgeCalculator() {
   const { t } = useLanguage();
-  const [birthDate, setBirthDate] = useState("");
+  const [year, setYear] = useState("");
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
   const [result, setResult] = useState<AgeResult | null>(null);
   const [error, setError] = useState("");
+
+  const currentYear = new Date().getFullYear();
+
+  const years = useMemo(() => {
+    const arr: number[] = [];
+    for (let y = currentYear; y >= 1900; y--) arr.push(y);
+    return arr;
+  }, [currentYear]);
+
+  const months = Array.from({ length: 12 }, (_, i) => i + 1);
+
+  const days = useMemo(() => {
+    const y = year ? parseInt(year) : currentYear;
+    const m = month ? parseInt(month) : 1;
+    const max = getDaysInMonth(y, m);
+    return Array.from({ length: max }, (_, i) => i + 1);
+  }, [year, month, currentYear]);
 
   function calculate() {
     setError("");
     setResult(null);
 
-    if (!birthDate) {
+    if (!year || !month || !day) {
       setError(t.calculator.errorEmpty);
       return;
     }
 
-    const birth = new Date(birthDate);
+    const y = parseInt(year);
+    const m = parseInt(month);
+    const d = parseInt(day);
+    const birth = new Date(y, m - 1, d);
     const today = new Date();
 
     if (birth > today) {
@@ -33,13 +59,7 @@ export default function AgeCalculator() {
       return;
     }
 
-    if (birth.getFullYear() < 1900) {
-      setError(t.calculator.errorYear);
-      return;
-    }
-
     const birthYear = birth.getFullYear();
-    const currentYear = today.getFullYear();
 
     const koreanAge = currentYear - birthYear + 1;
 
@@ -55,6 +75,9 @@ export default function AgeCalculator() {
     setResult({ koreanAge, internationalAge, birthYear });
   }
 
+  const selectClass =
+    "w-full rounded-lg border border-[#C9A84C]/30 bg-white/80 px-3 py-2.5 text-[#1B3A5C] focus:border-[#C9A84C] focus:ring-2 focus:ring-[#C9A84C]/20 focus:outline-none dark:bg-[#0D1B2A]/80 dark:text-[#F5EDD6] dark:border-[#C9A84C]/20";
+
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="glass-card rounded-2xl p-6 shadow-xl">
@@ -64,21 +87,62 @@ export default function AgeCalculator() {
 
         <div className="space-y-4">
           <div>
-            <label
-              htmlFor="birthdate"
-              className="mb-1 block text-sm font-medium text-[#1B3A5C]/80 dark:text-[#F5EDD6]/80"
-            >
+            <label className="mb-1 block text-sm font-medium text-[#1B3A5C]/80 dark:text-[#F5EDD6]/80">
               {t.calculator.label}
             </label>
-            <input
-              id="birthdate"
-              type="date"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-              max={new Date().toISOString().split("T")[0]}
-              min="1900-01-01"
-              className="w-full rounded-lg border border-[#C9A84C]/30 bg-white/80 px-4 py-2.5 text-[#1B3A5C] focus:border-[#C9A84C] focus:ring-2 focus:ring-[#C9A84C]/20 focus:outline-none dark:bg-[#0D1B2A]/80 dark:text-[#F5EDD6] dark:border-[#C9A84C]/20"
-            />
+            <div className="grid grid-cols-3 gap-2">
+              {/* Year */}
+              <div>
+                <label className="mb-1 block text-xs text-[#1B3A5C]/50 dark:text-[#F5EDD6]/40">
+                  {t.calculator.yearLabel}
+                </label>
+                <select
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  className={selectClass}
+                >
+                  <option value="">--</option>
+                  {years.map((y) => (
+                    <option key={y} value={y}>{y}</option>
+                  ))}
+                </select>
+              </div>
+              {/* Month */}
+              <div>
+                <label className="mb-1 block text-xs text-[#1B3A5C]/50 dark:text-[#F5EDD6]/40">
+                  {t.calculator.monthLabel}
+                </label>
+                <select
+                  value={month}
+                  onChange={(e) => {
+                    setMonth(e.target.value);
+                    setDay("");
+                  }}
+                  className={selectClass}
+                >
+                  <option value="">--</option>
+                  {months.map((m) => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
+                </select>
+              </div>
+              {/* Day */}
+              <div>
+                <label className="mb-1 block text-xs text-[#1B3A5C]/50 dark:text-[#F5EDD6]/40">
+                  {t.calculator.dayLabel}
+                </label>
+                <select
+                  value={day}
+                  onChange={(e) => setDay(e.target.value)}
+                  className={selectClass}
+                >
+                  <option value="">--</option>
+                  {days.map((d) => (
+                    <option key={d} value={d}>{d}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
           </div>
 
           {error && (
