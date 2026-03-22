@@ -44,7 +44,6 @@ export interface Translation {
   results: {
     twinsTitle: string;
     sameAgeBadge: string;
-    almostTwinsBadge: string;
     shareTwitter: string;
     copyLink: string;
     recalculate: string;
@@ -113,7 +112,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 Your Korean Age Twins!",
       sameAgeBadge: "Same Korean Age as you!",
-      almostTwinsBadge: "Almost twins!",
       shareTwitter: "Share on X",
       copyLink: "Copy Link",
       recalculate: "Calculate Again",
@@ -184,7 +182,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 \ub2f9\uc2e0\uc758 \ud55c\uad6d \ub098\uc774 \uc30d\ub465\uc774!",
       sameAgeBadge: "\ub2f9\uc2e0\uacfc \uac19\uc740 \ud55c\uad6d \ub098\uc774!",
-      almostTwinsBadge: "\uac70\uc758 \uc30d\ub465\uc774!",
       shareTwitter: "X\uc5d0 \uacf5\uc720",
       copyLink: "\ub9c1\ud06c \ubcf5\uc0ac",
       recalculate: "\ub2e4\uc2dc \uacc4\uc0b0\ud558\uae30",
@@ -254,7 +251,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 \u3042\u306a\u305f\u306e\u97d3\u56fd\u5e74\u9f62\u30c4\u30a4\u30f3\uff01",
       sameAgeBadge: "\u3042\u306a\u305f\u3068\u540c\u3058\u97d3\u56fd\u5e74\u9f62\uff01",
-      almostTwinsBadge: "\u307b\u307c\u30c4\u30a4\u30f3\uff01",
       shareTwitter: "X\u3067\u30b7\u30a7\u30a2",
       copyLink: "\u30ea\u30f3\u30af\u3092\u30b3\u30d4\u30fc",
       recalculate: "\u3082\u3046\u4e00\u5ea6\u8a08\u7b97",
@@ -324,7 +320,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 \u4f60\u7684\u97e9\u56fd\u5e74\u9f84\u53cc\u80de\u80ce\uff01",
       sameAgeBadge: "\u548c\u4f60\u540c\u6837\u7684\u97e9\u56fd\u5e74\u9f84\uff01",
-      almostTwinsBadge: "\u51e0\u4e4e\u662f\u53cc\u80de\u80ce\uff01",
       shareTwitter: "\u5206\u4eab\u5230X",
       copyLink: "\u590d\u5236\u94fe\u63a5",
       recalculate: "\u91cd\u65b0\u8ba1\u7b97",
@@ -394,7 +389,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 \u0e04\u0e39\u0e48\u0e41\u0e1d\u0e14\u0e2d\u0e32\u0e22\u0e38\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13!",
       sameAgeBadge: "\u0e2d\u0e32\u0e22\u0e38\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e40\u0e17\u0e48\u0e32\u0e01\u0e31\u0e19!",
-      almostTwinsBadge: "\u0e40\u0e01\u0e37\u0e2d\u0e1a\u0e40\u0e1b\u0e47\u0e19\u0e04\u0e39\u0e48\u0e41\u0e1d\u0e14!",
       shareTwitter: "\u0e41\u0e0a\u0e23\u0e4c\u0e1a\u0e19 X",
       copyLink: "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e25\u0e34\u0e07\u0e01\u0e4c",
       recalculate: "\u0e04\u0e33\u0e19\u0e27\u0e13\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07",
@@ -452,7 +446,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 C\u1eb7p song sinh tu\u1ed5i H\u00e0n c\u1ee7a b\u1ea1n!",
       sameAgeBadge: "C\u00f9ng tu\u1ed5i H\u00e0n v\u1edbi b\u1ea1n!",
-      almostTwinsBadge: "G\u1ea7n nh\u01b0 song sinh!",
       shareTwitter: "Chia s\u1ebb tr\u00ean X",
       copyLink: "Sao ch\u00e9p li\u00ean k\u1ebft",
       recalculate: "T\u00ednh l\u1ea1i",
@@ -510,7 +503,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 Kembar Usia Korea Anda!",
       sameAgeBadge: "Usia Korea sama denganmu!",
-      almostTwinsBadge: "Hampir kembar!",
       shareTwitter: "Bagikan di X",
       copyLink: "Salin Tautan",
       recalculate: "Hitung Lagi",
@@ -568,7 +560,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 Vos jumeaux d\u2019\u00e2ge cor\u00e9en !",
       sameAgeBadge: "M\u00eame \u00e2ge cor\u00e9en que vous !",
-      almostTwinsBadge: "Presque jumeaux !",
       shareTwitter: "Partager sur X",
       copyLink: "Copier le lien",
       recalculate: "Recalculer",
@@ -626,7 +617,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 \u00a1Tus gemelos de edad coreana!",
       sameAgeBadge: "\u00a1Misma edad coreana que t\u00fa!",
-      almostTwinsBadge: "\u00a1Casi gemelos!",
       shareTwitter: "Compartir en X",
       copyLink: "Copiar enlace",
       recalculate: "Calcular de nuevo",
@@ -684,7 +674,6 @@ export const translations: Record<Locale, Translation> = {
     results: {
       twinsTitle: "\ud83c\udf89 Ihre koreanischen Alters-Zwillinge!",
       sameAgeBadge: "Gleiches koreanisches Alter wie Sie!",
-      almostTwinsBadge: "Fast Zwillinge!",
       shareTwitter: "Auf X teilen",
       copyLink: "Link kopieren",
       recalculate: "Erneut berechnen",

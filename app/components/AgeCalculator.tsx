@@ -49,7 +49,7 @@ export default function AgeCalculator() {
   const twitterShareUrl = useMemo(() => {
     if (!result || !celebResult) return "";
     const firstMatch =
-      celebResult.exact[0] || celebResult.closest[0] || null;
+      celebResult.exact[0] || celebResult.fallbackCelebs?.[0] || null;
     const shareText = getShareText(
       result.koreanAge,
       firstMatch?.name || null,
@@ -105,7 +105,7 @@ export default function AgeCalculator() {
   async function handleCopy() {
     if (!result || !celebResult) return;
     const firstMatch =
-      celebResult.exact[0] || celebResult.closest[0] || null;
+      celebResult.exact[0] || celebResult.fallbackCelebs?.[0] || null;
     const shareText = getShareText(
       result.koreanAge,
       firstMatch?.name || null,
@@ -231,10 +231,10 @@ export default function AgeCalculator() {
             {celebResult && (
               <div>
                 <h3 className="text-xl font-bold text-center text-white mb-6">
-                  {t.results.twinsTitle}
+                  {celebResult.fallbackMessage || t.results.twinsTitle}
                 </h3>
 
-                <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory">
+                <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory justify-center">
                   {celebResult.exact.length > 0
                     ? celebResult.exact.map((celeb) => (
                         <div key={celeb.name} className="snap-center shrink-0">
@@ -250,7 +250,7 @@ export default function AgeCalculator() {
                           />
                         </div>
                       ))
-                    : celebResult.closest.map((celeb) => (
+                    : celebResult.fallbackCelebs?.map((celeb) => (
                         <div key={celeb.name} className="snap-center shrink-0">
                           <CelebrityCard
                             celebrity={celeb}
@@ -258,7 +258,6 @@ export default function AgeCalculator() {
                               celeb.birthYear,
                               currentYear
                             )}
-                            badge={t.results.almostTwinsBadge}
                             size="lg"
                             labels={{
                               koreanAgeLabel: t.gallery.koreanAgeLabel,

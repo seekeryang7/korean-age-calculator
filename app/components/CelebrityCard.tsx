@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Celebrity } from "../lib/funFacts";
 
 interface CelebrityCardProps {
@@ -26,6 +27,8 @@ export default function CelebrityCard({
     .join("")
     .slice(0, 2);
 
+  const avatarSize = isLg ? "h-20 w-20" : "h-12 w-12";
+
   return (
     <div
       className={`glass-card relative rounded-2xl text-center transition-all duration-300 hover:scale-[1.03] ${
@@ -43,14 +46,16 @@ export default function CelebrityCard({
       {/* Avatar */}
       <div className="flex justify-center">
         {!imgError && celebrity.imageUrl ? (
-          <img
-            src={celebrity.imageUrl}
-            alt={celebrity.name}
-            className={`rounded-full object-cover border-2 border-[#8B5CF6]/40 ${
-              isLg ? "h-20 w-20" : "h-12 w-12"
-            }`}
-            onError={() => setImgError(true)}
-          />
+          <div className={`relative ${avatarSize} rounded-full overflow-hidden border-2 border-[#8B5CF6]/40`}>
+            <Image
+              src={celebrity.imageUrl}
+              alt={celebrity.name}
+              fill
+              className="object-cover"
+              sizes={isLg ? "80px" : "48px"}
+              onError={() => setImgError(true)}
+            />
+          </div>
         ) : (
           <div
             className={`flex items-center justify-center rounded-full font-bold text-white ${
