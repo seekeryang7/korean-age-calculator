@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { Celebrity } from "../lib/funFacts";
 
 interface CelebrityCardProps {
@@ -18,6 +19,7 @@ export default function CelebrityCard({
   labels,
 }: CelebrityCardProps) {
   const isLg = size === "lg";
+  const [imgError, setImgError] = useState(false);
   const initials = celebrity.name
     .split(" ")
     .map((w) => w[0])
@@ -31,9 +33,6 @@ export default function CelebrityCard({
           ? "min-w-[220px] p-6 animate-slide-in"
           : "p-4"
       }`}
-      style={{
-        animation: isLg ? undefined : undefined,
-      }}
     >
       {badge && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] px-3 py-1 text-xs font-bold text-white shadow-lg">
@@ -43,16 +42,27 @@ export default function CelebrityCard({
 
       {/* Avatar */}
       <div className="flex justify-center">
-        <div
-          className={`flex items-center justify-center rounded-full font-bold text-white ${
-            isLg ? "h-20 w-20 text-2xl" : "h-12 w-12 text-base"
-          }`}
-          style={{
-            background: `linear-gradient(135deg, ${celebrity.gradient[0]}, ${celebrity.gradient[1]})`,
-          }}
-        >
-          {initials}
-        </div>
+        {!imgError && celebrity.imageUrl ? (
+          <img
+            src={celebrity.imageUrl}
+            alt={celebrity.name}
+            className={`rounded-full object-cover border-2 border-[#8B5CF6]/40 ${
+              isLg ? "h-20 w-20" : "h-12 w-12"
+            }`}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div
+            className={`flex items-center justify-center rounded-full font-bold text-white ${
+              isLg ? "h-20 w-20 text-2xl" : "h-12 w-12 text-base"
+            }`}
+            style={{
+              background: `linear-gradient(135deg, ${celebrity.gradient[0]}, ${celebrity.gradient[1]})`,
+            }}
+          >
+            {initials}
+          </div>
+        )}
       </div>
 
       {/* Info */}
