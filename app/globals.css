@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF8F0;
+  --foreground: #1B3A5C;
+  --korean-red: #C73E3A;
+  --korean-red-light: #F2E0DF;
+  --korean-navy: #1B3A5C;
+  --korean-navy-light: #E0E8F0;
+  --korean-gold: #C9A84C;
+  --korean-gold-light: #F5EDD6;
+  --korean-cream: #FFF8F0;
+  --korean-warm: #FFF0E6;
 }
 
 @theme inline {
@@ -14,8 +22,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0D1B2A;
+    --foreground: #F5EDD6;
+    --korean-red-light: #3A1A19;
+    --korean-navy-light: #152A3E;
+    --korean-gold-light: #2A2418;
+    --korean-cream: #0D1B2A;
+    --korean-warm: #111D2E;
   }
 }
 
@@ -25,6 +38,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -38,4 +52,83 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.4s ease-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    background: rgba(21, 42, 62, 0.7);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+  }
+}
+
+/* Korean decorative divider */
+.korean-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--korean-gold);
+}
+
+.korean-divider::before,
+.korean-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--korean-gold),
+    transparent
+  );
+}
+
+/* Hero gradient background */
+.hero-bg {
+  background: linear-gradient(
+    160deg,
+    var(--korean-cream) 0%,
+    var(--korean-warm) 50%,
+    var(--korean-cream) 100%
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-bg {
+    background: linear-gradient(
+      160deg,
+      #0D1B2A 0%,
+      #152A3E 50%,
+      #0D1B2A 100%
+    );
+  }
+}
+
+/* Gold shimmer text */
+.gold-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--korean-gold) 0%,
+    #E8D48B 25%,
+    var(--korean-gold) 50%,
+    #E8D48B 75%,
+    var(--korean-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
 }
