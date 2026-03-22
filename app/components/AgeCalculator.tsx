@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "./LanguageContext";
+import FunResults from "./FunResults";
 
 interface AgeResult {
   koreanAge: number;
@@ -123,6 +124,10 @@ export default function AgeCalculator() {
               </strong>
             </p>
           </div>
+        )}
+
+        {result && (
+          <FunResults birthYear={result.birthYear} koreanAge={result.koreanAge} />
         )}
       </div>
     </div>

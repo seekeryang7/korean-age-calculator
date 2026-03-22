@@ -45,6 +45,17 @@ export interface Translation {
     title: string;
     items: { q: string; a: string }[];
   };
+  funResults: {
+    zodiacTitle: (animal: string) => string;
+    zodiacDesc: string;
+    celebExact: (name: string, group: string) => string;
+    celebClosest: (name: string, group: string) => string;
+    celebBorn: (year: number) => string;
+    hakbeonTitle: (num: string) => string;
+    hakbeonDesc: string;
+    shareButton: string;
+    copied: string;
+  };
   footer: string;
 }
 
@@ -113,6 +124,17 @@ export const translations: Record<Locale, Translation> = {
         },
       ],
     },
+    funResults: {
+      zodiacTitle: (animal) => `You're a ${animal}!`,
+      zodiacDesc: "Based on the Korean zodiac (12-year cycle)",
+      celebExact: (name, group) => `Same Korean age as ${group} ${name}!`,
+      celebClosest: (name, group) => `Close in Korean age to ${group} ${name}!`,
+      celebBorn: (year) => `Born in ${year}`,
+      hakbeonTitle: (num) => `You'd be ${num}\ud559\ubc88 in Korea`,
+      hakbeonDesc: "Your Korean university entrance year class",
+      shareButton: "\ud83d\udcCB Copy & Share",
+      copied: "\u2705 Copied!",
+    },
     footer: "Korean Age Calculator. Built for anyone curious about Korean culture.",
   },
 
@@ -165,6 +187,17 @@ export const translations: Record<Locale, Translation> = {
           a: "만 나이는 말 그대로 '가득 찬 나이'를 의미하며, 세계 대부분의 나라에서 사용하는 국제 나이 계산 방식입니다.",
         },
       ],
+    },
+    funResults: {
+      zodiacTitle: (animal) => `당신의 띠는 ${animal}!`,
+      zodiacDesc: "한국 12간지 기준",
+      celebExact: (name, group) => `${group} ${name}와(과) 같은 한국 나이!`,
+      celebClosest: (name, group) => `${group} ${name}와(과) 비슷한 한국 나이!`,
+      celebBorn: (year) => `${year}년생`,
+      hakbeonTitle: (num) => `한국에서는 ${num}학번`,
+      hakbeonDesc: "한국 대학교 입학 기준 학번",
+      shareButton: "\ud83d\udcCB \ubcf5\uc0ac & \uacf5\uc720",
+      copied: "\u2705 \ubcf5\uc0ac\ub428!",
     },
     footer: "한국 나이 계산기. 한국 문화에 관심 있는 모든 분을 위해 만들었습니다.",
   },
@@ -219,6 +252,17 @@ export const translations: Record<Locale, Translation> = {
         },
       ],
     },
+    funResults: {
+      zodiacTitle: (animal) => `\u3042\u306a\u305f\u306e\u5e72\u652f\u306f${animal}\uff01`,
+      zodiacDesc: "\u97d3\u56fd\u306e\u5341\u4e8c\u652f\uff0812\u5e74\u5468\u671f\uff09\u306b\u57fa\u3065\u304f",
+      celebExact: (name, group) => `${group} ${name}\u3068\u540c\u3058\u97d3\u56fd\u5e74\u9f62\uff01`,
+      celebClosest: (name, group) => `${group} ${name}\u3068\u8fd1\u3044\u97d3\u56fd\u5e74\u9f62\uff01`,
+      celebBorn: (year) => `${year}\u5e74\u751f\u307e\u308c`,
+      hakbeonTitle: (num) => `\u97d3\u56fd\u3067\u306f${num}\u5b66\u756a`,
+      hakbeonDesc: "\u97d3\u56fd\u306e\u5927\u5b66\u5165\u5b66\u5e74\u5ea6\u57fa\u6e96",
+      shareButton: "\ud83d\udcCB \u30b3\u30d4\u30fc & \u30b7\u30a7\u30a2",
+      copied: "\u2705 \u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f\uff01",
+    },
     footer: "韓国年齢計算機。韓国文化に興味のあるすべての方へ。",
   },
 
@@ -271,6 +315,17 @@ export const translations: Record<Locale, Translation> = {
           a: "\ub9cc \ub098\uc774\u7684\u5b57\u9762\u610f\u601d\u662f\u201c\u8db3\u5c81\u201d\uff0c\u6307\u7684\u662f\u56fd\u9645\u5e74\u9f84\u8ba1\u7b97\u65b9\u5f0f\u2014\u2014\u4e16\u754c\u4e0a\u5927\u591a\u6570\u56fd\u5bb6\u4f7f\u7528\u7684\u8ba1\u7b97\u5e74\u9f84\u7684\u65b9\u6cd5\u3002",
         },
       ],
+    },
+    funResults: {
+      zodiacTitle: (animal) => `\u4f60\u7684\u5c5e\u76f8\u662f${animal}\uff01`,
+      zodiacDesc: "\u57fa\u4e8e\u97e9\u56fd\u5341\u4e8c\u751f\u8096\uff0812\u5e74\u5468\u671f\uff09",
+      celebExact: (name, group) => `\u548c${group} ${name}\u97e9\u56fd\u5e74\u9f84\u76f8\u540c\uff01`,
+      celebClosest: (name, group) => `\u548c${group} ${name}\u97e9\u56fd\u5e74\u9f84\u76f8\u8fd1\uff01`,
+      celebBorn: (year) => `${year}\u5e74\u51fa\u751f`,
+      hakbeonTitle: (num) => `\u5728\u97e9\u56fd\u4f60\u662f${num}\u5b66\u756a`,
+      hakbeonDesc: "\u97e9\u56fd\u5927\u5b66\u5165\u5b66\u5e74\u4efd\u57fa\u51c6",
+      shareButton: "\ud83d\udcCB \u590d\u5236 & \u5206\u4eab",
+      copied: "\u2705 \u5df2\u590d\u5236\uff01",
     },
     footer: "韩国年龄计算器。为所有对韩国文化感兴趣的人而建。",
   },
@@ -326,6 +381,17 @@ export const translations: Record<Locale, Translation> = {
         },
       ],
     },
+    funResults: {
+      zodiacTitle: (animal) => `\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e47\u0e19\u0e1b\u0e35${animal}!`,
+      zodiacDesc: "\u0e15\u0e32\u0e21\u0e19\u0e31\u0e01\u0e29\u0e31\u0e15\u0e23\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35 12 \u0e1b\u0e35",
+      celebExact: (name, group) => `\u0e2d\u0e32\u0e22\u0e38\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e40\u0e17\u0e48\u0e32\u0e01\u0e31\u0e1a ${group} ${name}!`,
+      celebClosest: (name, group) => `\u0e2d\u0e32\u0e22\u0e38\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e43\u0e01\u0e25\u0e49\u0e40\u0e04\u0e35\u0e22\u0e07\u0e01\u0e31\u0e1a ${group} ${name}!`,
+      celebBorn: (year) => `\u0e40\u0e01\u0e34\u0e14\u0e1b\u0e35 ${year}`,
+      hakbeonTitle: (num) => `\u0e43\u0e19\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e04\u0e38\u0e13\u0e08\u0e30\u0e40\u0e1b\u0e47\u0e19 ${num}\ud559\ubc88`,
+      hakbeonDesc: "\u0e23\u0e38\u0e48\u0e19\u0e1b\u0e35\u0e40\u0e02\u0e49\u0e32\u0e21\u0e2b\u0e32\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35",
+      shareButton: "\ud83d\udcCB \u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01 & \u0e41\u0e0a\u0e23\u0e4c",
+      copied: "\u2705 \u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e41\u0e25\u0e49\u0e27!",
+    },
     footer: "เครื่องคำนวณอายุเกาหลี สร้างสำหรับทุกคนที่สนใจวัฒนธรรมเกาหลี",
   },
 
@@ -379,6 +445,17 @@ export const translations: Record<Locale, Translation> = {
           a: '만 나이 nghĩa đen là "tuổi đầy đủ" và chỉ hệ thống tính tuổi quốc tế — cách mà hầu hết các quốc gia trên thế giới tính tuổi.',
         },
       ],
+    },
+    funResults: {
+      zodiacTitle: (animal) => `B\u1ea1n l\u00e0 tu\u1ed5i ${animal}!`,
+      zodiacDesc: "Theo 12 con gi\u00e1p H\u00e0n Qu\u1ed1c",
+      celebExact: (name, group) => `C\u00f9ng tu\u1ed5i H\u00e0n Qu\u1ed1c v\u1edbi ${group} ${name}!`,
+      celebClosest: (name, group) => `Tu\u1ed5i H\u00e0n Qu\u1ed1c g\u1ea7n v\u1edbi ${group} ${name}!`,
+      celebBorn: (year) => `Sinh n\u0103m ${year}`,
+      hakbeonTitle: (num) => `\u1ede H\u00e0n Qu\u1ed1c b\u1ea1n l\u00e0 ${num}\ud559\ubc88`,
+      hakbeonDesc: "N\u0103m nh\u1eadp h\u1ecdc \u0111\u1ea1i h\u1ecdc H\u00e0n Qu\u1ed1c",
+      shareButton: "\ud83d\udcCB Sao ch\u00e9p & Chia s\u1ebb",
+      copied: "\u2705 \u0110\u00e3 sao ch\u00e9p!",
     },
     footer: "Tính Tuổi Hàn Quốc. Dành cho tất cả những ai yêu thích văn hóa Hàn Quốc.",
   },
@@ -434,6 +511,17 @@ export const translations: Record<Locale, Translation> = {
         },
       ],
     },
+    funResults: {
+      zodiacTitle: (animal) => `Shio Anda adalah ${animal}!`,
+      zodiacDesc: "Berdasarkan zodiak Korea (siklus 12 tahun)",
+      celebExact: (name, group) => `Usia Korea sama dengan ${group} ${name}!`,
+      celebClosest: (name, group) => `Usia Korea dekat dengan ${group} ${name}!`,
+      celebBorn: (year) => `Lahir tahun ${year}`,
+      hakbeonTitle: (num) => `Di Korea Anda ${num}\ud559\ubc88`,
+      hakbeonDesc: "Tahun masuk universitas di Korea",
+      shareButton: "\ud83d\udcCB Salin & Bagikan",
+      copied: "\u2705 Tersalin!",
+    },
     footer: "Kalkulator Usia Korea. Dibuat untuk siapa saja yang tertarik dengan budaya Korea.",
   },
 
@@ -487,6 +575,17 @@ export const translations: Record<Locale, Translation> = {
           a: "\ub9cc \ub098\uc774 signifie litt\u00e9ralement \u00ab \u00e2ge complet \u00bb et d\u00e9signe le syst\u00e8me de calcul de l\u2019\u00e2ge international \u2014 la fa\u00e7on dont la plupart des pays du monde calculent l\u2019\u00e2ge.",
         },
       ],
+    },
+    funResults: {
+      zodiacTitle: (animal) => `Vous \u00eates ${animal} !`,
+      zodiacDesc: "Bas\u00e9 sur le zodiaque cor\u00e9en (cycle de 12 ans)",
+      celebExact: (name, group) => `M\u00eame \u00e2ge cor\u00e9en que ${group} ${name} !`,
+      celebClosest: (name, group) => `\u00c2ge cor\u00e9en proche de ${group} ${name} !`,
+      celebBorn: (year) => `N\u00e9(e) en ${year}`,
+      hakbeonTitle: (num) => `En Cor\u00e9e, vous seriez ${num}\ud559\ubc88`,
+      hakbeonDesc: "Ann\u00e9e d\u2019entr\u00e9e \u00e0 l\u2019universit\u00e9 en Cor\u00e9e",
+      shareButton: "\ud83d\udcCB Copier & Partager",
+      copied: "\u2705 Copi\u00e9 !",
     },
     footer: "Calculateur d\u2019\u00e2ge cor\u00e9en. Pour tous ceux qui s\u2019int\u00e9ressent \u00e0 la culture cor\u00e9enne.",
   },
@@ -542,6 +641,17 @@ export const translations: Record<Locale, Translation> = {
         },
       ],
     },
+    funResults: {
+      zodiacTitle: (animal) => `\u00a1Eres ${animal}!`,
+      zodiacDesc: "Basado en el zodiaco coreano (ciclo de 12 a\u00f1os)",
+      celebExact: (name, group) => `\u00a1Misma edad coreana que ${group} ${name}!`,
+      celebClosest: (name, group) => `\u00a1Edad coreana cercana a ${group} ${name}!`,
+      celebBorn: (year) => `Nacido/a en ${year}`,
+      hakbeonTitle: (num) => `En Corea ser\u00edas ${num}\ud559\ubc88`,
+      hakbeonDesc: "A\u00f1o de ingreso universitario en Corea",
+      shareButton: "\ud83d\udcCB Copiar & Compartir",
+      copied: "\u2705 \u00a1Copiado!",
+    },
     footer: "Calculadora de Edad Coreana. Hecha para cualquiera que sienta curiosidad por la cultura coreana.",
   },
 
@@ -595,6 +705,17 @@ export const translations: Record<Locale, Translation> = {
           a: "\ub9cc \ub098\uc774 bedeutet w\u00f6rtlich \u00abvolles Alter\u00bb und bezieht sich auf das internationale Altersberechnungssystem \u2014 die Art, wie die meisten L\u00e4nder der Welt das Alter berechnen.",
         },
       ],
+    },
+    funResults: {
+      zodiacTitle: (animal) => `Sie sind ${animal}!`,
+      zodiacDesc: "Basierend auf dem koreanischen Tierkreis (12-Jahres-Zyklus)",
+      celebExact: (name, group) => `Gleiches koreanisches Alter wie ${group} ${name}!`,
+      celebClosest: (name, group) => `Koreanisches Alter nahe an ${group} ${name}!`,
+      celebBorn: (year) => `Geboren ${year}`,
+      hakbeonTitle: (num) => `In Korea w\u00e4ren Sie ${num}\ud559\ubc88`,
+      hakbeonDesc: "Universit\u00e4ts-Eintrittsjahr in Korea",
+      shareButton: "\ud83d\udcCB Kopieren & Teilen",
+      copied: "\u2705 Kopiert!",
     },
     footer: "Koreanischer Altersrechner. F\u00fcr alle, die sich f\u00fcr die koreanische Kultur interessieren.",
   },
