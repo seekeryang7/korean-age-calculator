@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "./LanguageContext";
 
 interface AgeResult {
   koreanAge: number;
@@ -9,6 +10,7 @@ interface AgeResult {
 }
 
 export default function AgeCalculator() {
+  const { t } = useLanguage();
   const [birthDate, setBirthDate] = useState("");
   const [result, setResult] = useState<AgeResult | null>(null);
   const [error, setError] = useState("");
@@ -18,7 +20,7 @@ export default function AgeCalculator() {
     setResult(null);
 
     if (!birthDate) {
-      setError("Please select your date of birth.");
+      setError(t.calculator.errorEmpty);
       return;
     }
 
@@ -26,12 +28,12 @@ export default function AgeCalculator() {
     const today = new Date();
 
     if (birth > today) {
-      setError("Date of birth cannot be in the future.");
+      setError(t.calculator.errorFuture);
       return;
     }
 
     if (birth.getFullYear() < 1900) {
-      setError("Please enter a year after 1900.");
+      setError(t.calculator.errorYear);
       return;
     }
 
@@ -56,7 +58,7 @@ export default function AgeCalculator() {
     <div className="w-full max-w-md mx-auto">
       <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg dark:border-gray-700 dark:bg-gray-900">
         <h2 className="mb-6 text-xl font-semibold text-gray-900 dark:text-white">
-          Enter Your Birthday
+          {t.calculator.heading}
         </h2>
 
         <div className="space-y-4">
@@ -65,7 +67,7 @@ export default function AgeCalculator() {
               htmlFor="birthdate"
               className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
             >
-              Date of Birth
+              {t.calculator.label}
             </label>
             <input
               id="birthdate"
@@ -86,7 +88,7 @@ export default function AgeCalculator() {
             onClick={calculate}
             className="w-full cursor-pointer rounded-lg bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2.5 font-medium text-white transition-opacity hover:opacity-90 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none"
           >
-            Calculate My Korean Age
+            {t.calculator.button}
           </button>
         </div>
 
@@ -94,7 +96,7 @@ export default function AgeCalculator() {
           <div className="animate-fade-in mt-6 space-y-4">
             <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-950/40">
               <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                Korean Age (한국 나이)
+                {t.calculator.koreanAge}
               </p>
               <p className="text-3xl font-bold text-indigo-700 dark:text-indigo-300">
                 {result.koreanAge}
@@ -103,7 +105,7 @@ export default function AgeCalculator() {
 
             <div className="rounded-xl bg-blue-50 p-4 dark:bg-blue-950/40">
               <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                International Age (만 나이)
+                {t.calculator.internationalAge}
               </p>
               <p className="text-3xl font-bold text-blue-700 dark:text-blue-300">
                 {result.internationalAge}
@@ -111,9 +113,12 @@ export default function AgeCalculator() {
             </div>
 
             <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-              Born in {result.birthYear} — your Korean age is{" "}
-              <strong>{result.koreanAge - result.internationalAge} year(s) more</strong>{" "}
-              than your international age.
+              {t.calculator.resultBornIn(result.birthYear)}{" "}
+              <strong>
+                {t.calculator.resultDiff(
+                  result.koreanAge - result.internationalAge
+                )}
+              </strong>
             </p>
           </div>
         )}
