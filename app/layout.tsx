@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "./components/LanguageContext";
+import { GA_ID } from "./lib/gtag";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -60,6 +62,17 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
+      {GA_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="ga-init" strategy="afterInteractive">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+          </Script>
+        </>
+      )}
       <body className="min-h-full flex flex-col bg-[#0F0B1A] text-[#F0E6FF]">
         <LanguageProvider>{children}</LanguageProvider>
       </body>

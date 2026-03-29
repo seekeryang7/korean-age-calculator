@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { Celebrity } from "../lib/funFacts";
+import { event as gaEvent } from "../lib/gtag";
 
 interface CelebrityCardProps {
   celebrity: Celebrity;
@@ -31,7 +32,8 @@ export default function CelebrityCard({
 
   return (
     <div
-      className={`glass-card relative rounded-2xl text-center transition-all duration-300 hover:scale-[1.03] ${
+      onClick={() => gaEvent("celebrity_click", { celebrity_name: celebrity.name, celebrity_group: celebrity.group })}
+      className={`glass-card relative rounded-2xl text-center transition-all duration-300 hover:scale-[1.03] cursor-pointer ${
         isLg
           ? "min-w-[220px] p-6 animate-slide-in"
           : "p-4"

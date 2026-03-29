@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useLanguage } from "./LanguageContext";
 import CelebrityCard from "./CelebrityCard";
 import { getCelebMatches, getKoreanAge, getShareText } from "../lib/funFacts";
+import { event as gaEvent } from "../lib/gtag";
 
 interface AgeResult {
   koreanAge: number;
@@ -92,6 +93,7 @@ export default function AgeCalculator() {
     }
 
     setResult({ koreanAge, internationalAge, birthYear });
+    gaEvent("calculate_age", { korean_age: koreanAge, birth_year: birthYear });
   }
 
   function reset() {
@@ -112,6 +114,7 @@ export default function AgeCalculator() {
       firstMatch?.nationality || null
     );
     await navigator.clipboard.writeText(shareText);
+    gaEvent("share_result", { method: "copy_link" });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
@@ -276,6 +279,7 @@ export default function AgeCalculator() {
                 href={twitterShareUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => gaEvent("share_result", { method: "twitter" })}
                 className="w-full rounded-lg bg-[#1DA1F2]/10 border border-[#1DA1F2]/30 px-4 py-3 text-center font-medium text-[#1DA1F2] transition-all hover:bg-[#1DA1F2]/20 active:scale-[0.98]"
               >
                 {t.results.shareTwitter}
