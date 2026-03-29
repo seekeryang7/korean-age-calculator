@@ -69,6 +69,9 @@ export default function PageContent() {
             <p className="mt-3 leading-7 text-white/60">
               {t.explanation.howP1}
             </p>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.explanation.howP2}
+            </p>
             <p className="mt-4 rounded-lg bg-[#8B5CF6]/10 px-4 py-3 text-center font-semibold text-[#EC4899]">
               {t.explanation.howFormula}
             </p>
@@ -81,6 +84,9 @@ export default function PageContent() {
             <p className="mt-3 leading-7 text-white/60">
               {t.explanation.vsP1}
             </p>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.explanation.vsP2}
+            </p>
           </div>
 
           <div className="glass-card rounded-xl p-6">
@@ -89,6 +95,48 @@ export default function PageContent() {
             </h2>
             <p className="mt-3 leading-7 text-white/60">
               {t.explanation.reformP1}
+            </p>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.explanation.reformP2}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Guide */}
+      <section className="px-4 py-16">
+        <div className="mx-auto max-w-2xl space-y-8">
+          <h2 className="text-center text-2xl font-bold text-white">
+            {t.guide.title}
+          </h2>
+
+          <div className="glass-card rounded-xl p-6">
+            <h3 className="text-xl font-semibold text-white">
+              {t.guide.cultureTitle}
+            </h3>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.guide.cultureP1}
+            </p>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.guide.cultureP2}
+            </p>
+          </div>
+
+          <div className="glass-card rounded-xl p-6">
+            <h3 className="text-xl font-semibold text-white">
+              {t.guide.examplesTitle}
+            </h3>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.guide.examplesP1}
+            </p>
+          </div>
+
+          <div className="glass-card rounded-xl p-6">
+            <h3 className="text-xl font-semibold text-white">
+              {t.guide.tipsTitle}
+            </h3>
+            <p className="mt-3 leading-7 text-white/60">
+              {t.guide.tipsP1}
             </p>
           </div>
         </div>
